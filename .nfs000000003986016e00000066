@@ -1,4 +1,3 @@
-# encoding: UTF-8
 require 'rubygems'
 require 'sinatra'
 #require 'sinatra/reloader'
@@ -20,25 +19,16 @@ post '/visit' do
   @user_name = params[:username]
   @phone = params[:phone]
   @date_time = params[:datetime]
-  @barber = params[:barber]
 
-  user_unput = [ @user_name, @phone, @date_time ]
-
-	user_unput.each do |item|
-  	if item == ''
-	  	@message = "Похоже в поле пусто..."
-			erb :visit
-		end
-  end
+  #@title = 'Thanks!'
+  #@message = "Thank you, #{@user_name}, we'll be waiting at #{@date_time}"
   
   file = File.open './public/users.txt','a'
-  file.write "User: #{@user_name}, Phone: #{@phone}, Date and time: #{@date_time}, Barber: #{@barber}\n\r"
+  file.write "User: #{@user_name}, Phone: #{@phone}, Date and time: #{@date_time}\n\r"
   file.close
-  
-  erb "OK! username is #{@user_name}, your phone: #{@phone}, date and time: #{@date_time}, barber: #{@barber}"
+  erb :visit
+  #erb :message
 
-  #erb :visit
-  
 end
 
 get '/contacts' do
@@ -51,7 +41,7 @@ post '/contacts' do
 	@user_message = params[:user_message]
 
 	file = File.open './public/contacts.txt','a'
-	file.write "Email : #{@user_email},\n\r Message: #{@user_message}\n\r"
+	file.write "Email : #{@user_email}, Message: #{@user_message}\n\r"
 	file.close
 
 	erb :contacts

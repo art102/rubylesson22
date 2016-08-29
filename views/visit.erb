@@ -1,15 +1,6 @@
 <h2>Записаться</h2>
 <p>На этой странице Вы сможете записаться к нам в Barber Shop.</p>
 <p></p>
-<p>Выберите пожалуйста парикмахера из списка ниже:</p>
-
-<b><%=  @barber_walter %></b>
-
-<select class="form-control">
-  <option name="w_white">Walter White</option>
-  <option name="j_pinkman">Jessie Pinkman</option>
-  <option name="g_fring">Gus Fring</option>
-</select>
 
 <p><b><%= @message %></b></p>
 
@@ -29,6 +20,15 @@
     <label >Когда вас ждать?</label>
     <input name="datetime" type="text" class="form-control"  placeholder="Введите дату и время">
   </div>
+
+  <div class="form-group">
+    <label >Выберите парикмахера из списка ниже:</label>
+	  <select name="barber" class="form-control">
+	  	<option>Walter White</option>
+	  	<option>Jessie Pinkman</option>
+	  	<option>Gus Fring</option>
+		</select>
+   </div>
 
   <button type="submit" class="btn btn-success">Записаться</button>
 

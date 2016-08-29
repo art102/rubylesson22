@@ -1,8 +1,5 @@
-User: dsfsdf, Phone: sdfsdf, Date and time: sdfsdfsdf
-User: dsfsdf, Phone: sdfsdf, Date and time: sdfsdfsdf
-User: , Phone: , Date and time: 
-User: , Phone: , Date and time: 
-User: super@mail.com, Phone: 12313, Date and time: 24.12.2018 14:15
-User: ftyrty, Phone: rty, Date and time: rty
-User: 44, Phone: 44, Date and time: 44
+User: Keit, Phone: 123123, Date and time: 24.12.1985 20:00, Barber: Jessie Pinkman
+User: , Phone: , Date and time: , Barber: Walter White
+User: , Phone: , Date and time: , Barber: Walter White
+User: Artur, Phone: 7867868, Date and time: 24.12.2020 13:00, Barber: Jessie Pinkman
 

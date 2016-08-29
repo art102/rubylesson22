@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'rubygems'
 require 'sinatra'
 #require 'sinatra/reloader'
@@ -20,14 +21,23 @@ post '/visit' do
   @phone = params[:phone]
   @date_time = params[:datetime]
 
-  #@title = 'Thanks!'
-  #@message = "Thank you, #{@user_name}, we'll be waiting at #{@date_time}"
+  @barber_walter = params[:w_white]
+  @barber_jessie = params[:j_pinkman]
+  @barber_gus = params[:g_fring]
+
+  user_unput = [ @user_name, @phone, @date_time ]
+
+	user_unput.each do |item|
+  	if item == ''
+	  	@message = "Похоже в поле пусто..."
+			erb :visit
+		end
+  end
   
   file = File.open './public/users.txt','a'
   file.write "User: #{@user_name}, Phone: #{@phone}, Date and time: #{@date_time}\n\r"
   file.close
   erb :visit
-  #erb :message
 
 end
 

@@ -1,5 +1,17 @@
-<h1>Записаться</h2>
+<h2>Записаться</h2>
 <p>На этой странице Вы сможете записаться к нам в Barber Shop.</p>
+<p></p>
+<p>Выберите пожалуйста парикмахера из списка ниже:</p>
+
+<b><%=  @barber_walter %></b>
+
+<select class="form-control">
+  <option name="w_white">Walter White</option>
+  <option name="j_pinkman">Jessie Pinkman</option>
+  <option name="g_fring">Gus Fring</option>
+</select>
+
+<p><b><%= @message %></b></p>
 
 <form action="/visit" method="POST" role='form'>
 

@@ -21,6 +21,7 @@ post '/visit' do
   @phone = params[:phone]
   @date_time = params[:datetime]
   @barber = params[:barber]
+  @color = params[:hair_color]
 
   user_unput = [ @user_name, @phone, @date_time ]
 
@@ -35,7 +36,7 @@ post '/visit' do
   file.write "User: #{@user_name}, Phone: #{@phone}, Date and time: #{@date_time}, Barber: #{@barber}\n\r"
   file.close
   
-  erb "OK! username is #{@user_name}, your phone: #{@phone}, date and time: #{@date_time}, barber: #{@barber}"
+  erb "OK! username is #{@user_name}, your phone: #{@phone}, date and time: #{@date_time}, barber: #{@barber}, color: #{@color}"
 
   #erb :visit
   

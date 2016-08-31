@@ -2,4 +2,7 @@ User: Keit, Phone: 123123, Date and time: 24.12.1985 20:00, Barber: Jessie Pinkm
 User: , Phone: , Date and time: , Barber: Walter White
 User: , Phone: , Date and time: , Barber: Walter White
 User: Artur, Phone: 7867868, Date and time: 24.12.2020 13:00, Barber: Jessie Pinkman
+User: , Phone: , Date and time: , Barber: Jessie Pinkman
+User: , Phone: , Date and time: , Barber: Walter White
+User: Marat, Phone: 89605673422, Date and time: 21.05.2016 12:30, Barber: Walter White
 

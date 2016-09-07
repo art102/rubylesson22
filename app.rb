@@ -8,6 +8,7 @@ get '/' do
 end
 
 get '/about' do
+	#@error = 'Something wrong!'
 	erb :about
 end
 
@@ -23,22 +24,43 @@ post '/visit' do
   @barber = params[:barber]
   @color = params[:hair_color]
 
-  user_unput = [ @user_name, @phone, @date_time ]
+  #user_unput = [ @user_name, @phone, @date_time ]
+ 
+  # хеш
+ 	hh = { :user_name => 'Ошибка, введите имя', 
+ 				:phone => 'Ошибка, Вы не ввели телефон', 
+ 				:datetime => 'Ошибка, введите дату и время'
+ 	}
 
-	user_unput.each do |item|
-  	if item == ''
-	  	@message = "Похоже в поле пусто..."
-			erb :visit
-		end
-  end
+
+ 	hh.each do |key, value|
+
+ 		# если параметр пуст
+ 		if params[key] == ''
+ 			# переменной error присвоить значение value из хеша hh
+ 			# (а value из хеша hh - это сообщение об ошибке)
+ 			# т.е переменной error присвоить сообщение об ошибке
+ 			@error = hh[key]
+
+ 			# вернуть представление :visit
+ 			return erb :visit
+ 		end
+
+ 	end
+
+	#user_unput.each do |item|
+  #	if item == ''
+	 	#erb :visit
+	#  	@error = 'Ошибка. Возможно Вы заполнили не все поля...'
+	#  	return erb :visit
+	#	end
+  #end
   
-  file = File.open './public/users.txt','a'
-  file.write "User: #{@user_name}, Phone: #{@phone}, Date and time: #{@date_time}, Barber: #{@barber}\n\r"
-  file.close
+  #file = File.open './public/users.txt','a'
+  #file.write "User: #{@user_name}, Phone: #{@phone}, Date and time: #{@date_time}, Barber: #{@barber}\n\r"
+  #file.close
   
   erb "OK! username is #{@user_name}, your phone: #{@phone}, date and time: #{@date_time}, barber: #{@barber}, color: #{@color}"
-
-  #erb :visit
   
 end
 

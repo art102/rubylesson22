@@ -2,6 +2,21 @@
 require 'rubygems'
 require 'sinatra'
 #require 'sinatra/reloader'
+require 'sqlite3'
+
+configure do 
+	@db = SQLite3::Database.new 'barb_shop.db'
+	@db.execute 'CREATE TABLE IF NOT EXISTS
+		"Users"
+		(
+			"id" INTEGER PRIMARY KEY AUTOINCREMENT,
+			"username" TEXT,
+			"phone" TEXT,
+			"datestamp" TEXT,
+			"barber" TEXT,
+			"color" TEXT
+		)'
+end
 
 get '/' do
 	erb "Hello! <a href=\"https://github.com/bootstrap-ruby/sinatra-bootstrap\">Original</a> pattern has been modified for <a href=\"http://rubyschool.us/\">Ruby School</a>"			
@@ -27,7 +42,7 @@ post '/visit' do
   #user_unput = [ @user_name, @phone, @date_time ]
  
   # хеш
- 	hh = { :user_name => 'Ошибка, введите имя', 
+ 	hh = { :username => 'Ошибка, введите имя', 
  				:phone => 'Ошибка, Вы не ввели телефон', 
  				:datetime => 'Ошибка, введите дату и время'
  	}
@@ -71,12 +86,32 @@ end
 post '/contacts' do
 
 	@user_email = params[:email]
-	@user_message = params[:user_message]
+	@usermessage = params[:user_message]
 
-	file = File.open './public/contacts.txt','a'
-	file.write "Email : #{@user_email},\n\r Message: #{@user_message}\n\r"
-	file.close
+	if @user_email == ''
+		@error = 'Вы не ввели email'
+		erb :contacts
+	end
 
-	erb :contacts
+	if @usermessage == ''
+		@error = 'Вы не ввели сообщение'
+		erb :contacts
+	end
+
+	#if @user_email == ''
+	#	@error = 'Вы не ввели email'
+	#	erb :contacts
+	#elsif @user_message == ''
+	#	@error = 'Вы не ввели сообщение'
+	#	erb :contacts
+	#else 
+	#	erb :contacts
+	#end
+
+	#file = File.open './public/contacts.txt','a'
+	#file.write "Email : #{@user_email},\n\r Message: #{@user_message}\n\r"
+	#file.close
+
+	#erb :contacts
 	
 end

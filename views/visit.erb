@@ -3,7 +3,7 @@
 <p></p>
 
 <!-- Просто сообщение без оформления -->
-<p><b><%= @message %></b></p>
+<!-- <p><b><%= @message %></b></p> -->
 
 <!-- Сообщение со стилем - не работает -->
 <!-- <div class="alert alert-danger"><%= @message %></div> -->
@@ -38,9 +38,9 @@
   <div class="form-group">
     <label >Выберите парикмахера из списка ниже:</label>
 	  <select name="barber" class="form-control">
-	  	<option>Walter White</option>
-	  	<option>Jessie Pinkman</option>
-	  	<option>Gus Fring</option>
+	  	<option <%= @barber == 'Walter White' ? 'selected' : '' %>>Walter White</option>
+	  	<option <%= @barber == 'Jessie Pinkman' ? 'selected' : '' %>>Jessie Pinkman</option>
+	  	<option <%= @barber == 'Gus Fring' ? 'selected' : '' %>>Gus Fring</option>
 		</select>
    </div>
 
